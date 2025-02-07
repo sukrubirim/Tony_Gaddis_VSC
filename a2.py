@@ -22,4 +22,21 @@ def main():
         print("The file has been updated.")
     else:
         print(f"There is no one in this file named {search}.")  
+    display_highest_score()
+    
+def display_highest_score():
+    student_file=open("students.txt","r")
+    max_grade_name=""
+    max_grade=0.0
+    name=student_file.readline()
+    while name!="":
+        grade=student_file.readline()
+        if float(grade.rstrip("\n"))>max_grade:
+            max_grade_name=name.rstrip("\n")
+            max_grade=float(grade.rstrip("\n"))
+        name=student_file.readline()
+    student_file.close()
+    print("Highest grade & name: ",end=" ")
+    print(max_grade,max_grade_name,sep=" & ")
+    
 main()

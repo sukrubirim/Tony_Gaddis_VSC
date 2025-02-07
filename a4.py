@@ -18,8 +18,20 @@ def display_several_number_of_line(file_name):
         line=num_file.readline()
     num_file.close()
 
+def display_all_numbers():
+    number_file=open("number_file.txt","r")
+    num=number_file.readline()
+    count=0
+    while num!="":
+        count+=1
+        print(f"#{count} ",num,end="")
+        num=number_file.readline()
+    number_file.close
+    
+main()
 def main():
     file_name=create_number_file()
     display_several_number_of_line(file_name)
+    display_all_numbers()
 
 main()
